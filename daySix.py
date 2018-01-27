@@ -1,11 +1,12 @@
 def main():
     # distro = [5,1,10,0,1,7,13,14,3,12,8,10,7,12,0,6]
     distro = [0,2,7,0]
-    listOfDistros = [distro]
+    listOfDistros = [[0,2,7,0]]
     nonRepeat = True
     print(listOfDistros)
-
+    x = 0
     while nonRepeat:
+
         maxVal = max(distro)
         maxIndex = distro.index(maxVal)
         addingToIndex = maxIndex+1
@@ -15,9 +16,19 @@ def main():
                 addingToIndex = 0
             distro[addingToIndex] = distro[addingToIndex]+1
             addingToIndex = addingToIndex+1
-        listOfDistros.append(distro[:])
+        listOfDistros.append([distro])
         print(listOfDistros)
-        nonRepeat = False
+        x = x+1
+        for item in listOfDistros:
+            for num in distro:
+                # if(item == distro):
+                #     print(item)
+                #     print(distro)
+                #     nonRepeat = False
+                #     print("it worked")
+
+                if(x == 3):
+                    nonRepeat = False
 
 
 main()
