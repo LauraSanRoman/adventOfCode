@@ -35,15 +35,15 @@ func main (){
       m[strings.Trim(line[0:indexOfStartParen]," ")] = DISC{weight, []string{},true}
     }
   }
+  fmt.Println(m)
   weightMap = convertWeights(m)
   for disc  := range m {
-    for i := 0; i < len(m[disc].connections); i++ {
+    for i := 1; i < len(m[disc].connections); i++ {
       if(weightMap[m[disc].connections[0]] != weightMap[m[disc].connections[i]]){
         m[disc] = DISC{m[disc].weight,m[disc].connections, false}
       }
     }
     if(!m[disc].balanced){
-      fmt.Println("key: ", disc, "value", m[disc])
       for item  := range m[disc].connections {
         fmt.Println("key: ", m[disc].connections[item], "weight", weightMap[m[disc].connections[item]])
       }

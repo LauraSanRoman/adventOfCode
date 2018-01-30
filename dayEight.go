@@ -21,6 +21,8 @@ func main () {
   for instruction := range listOfInstructions {
     registers[listOfInstructions[instruction][0]] = 0
   }
+  max := -9999999
+  temp := 0
   for instruction := range listOfInstructions {
      // 0 = register
      // 1 = inc / dec
@@ -40,9 +42,13 @@ func main () {
         registers[listOfInstructions[instruction][0]] -= amount
       }
     }
+    temp = getGreatest(registers)
+    if(temp>max){
+      max = temp
+    }
   }
   fmt.Println(getGreatest(registers))
-  
+  fmt.Println(max)
 
 }
 
